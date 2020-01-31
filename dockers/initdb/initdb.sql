@@ -31,6 +31,7 @@ CREATE TABLE `As_project` (
 
 
 
+
 /* --Adding recodes for examples
 */
 INSERT INTO `As_company`(id,Name) VALUES (11, 'Simpsons' );
@@ -47,9 +48,9 @@ INSERT INTO `As_account`(id,Name,Company_id) VALUES (5, 'Wilma', 22 );
 
 
 
-INSERT INTO `As_project`(id,Name,Account_id,Status) VALUES (111, 'Skate', 11, 0 );
-INSERT INTO `As_project`(id,Name,Account_id,Status) VALUES (222, 'Play on saxophone', 11, 1 );
-INSERT INTO `As_project`(id,Name,Account_id,Status) VALUES (333, 'Eat', 11, 2 );
-INSERT INTO `As_project`(id,Name,Account_id,Status) VALUES (444, 'Gatherer', 22, 0 );
-INSERT INTO `As_project`(id,Name,Account_id,Status) VALUES (555, 'Hunt', 22, 1 );
+INSERT INTO `As_project`(id,Name,Account_id,Status) VALUES (111, 'Skate', 1, 0 );
+INSERT INTO `As_project`(id,Name,Account_id,Status) VALUES (222, 'Play on saxophone', 2, 1 );
+INSERT INTO `As_project`(id,Name,Account_id,Status) VALUES (333, 'Eat', 3, 2 );
+INSERT INTO `As_project`(id,Name,Account_id,Status) VALUES (444, 'Gatherer', 4, 0 );
+INSERT INTO `As_project`(id,Name,Account_id,Status) VALUES (555, 'Hunt', 5, 1 );
 
