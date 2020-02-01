@@ -1,31 +1,60 @@
-<html>
-    <head>
-        <title>At-Bay Project</title>
-    </head>
-    <body>
-        <h1>Hello, !</h1>
-        <a href="/add">Add</a>
-<table border="1">
-
-  <tr>
-    <th>Index #</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Personal Id</th>
-    <th>Department</th>
-{% for user in users %}
-  </tr>
-    <tr>
-    <th>{{ user.id }}</th>
-    <th>{{ user.first_name }}</th>
-    <th>{{ user.last_name }}</th>
-    <th>{{ user.emp_no }}</th>
-    <th>{{ user.department }}</th>
-    <th><a href="/{{ user.id }}/delete">Delete</a></th>
-    <th><a href="/edit/{{ user.id }}">Edit</a></th>
-  </tr>
-{% endfor %}
-
+<table border="1" class="dataframe Attendance">
+  <thead>
+    <tr style="text-align: center;">
+      <th>Company_ID</th>
+      <th>Company_Name</th>
+      <th>Account_ID</th>
+      <th>Account_Name</th>
+      <th>Project_ID</th>
+      <th>Project_Name</th>
+      <th>Project_Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="text-align: center;">
+      <td>11</td>
+      <td>Simpsons</td>
+      <td>1</td>
+      <td>Bart</td>
+      <td>111</td>
+      <td>Skate</td>
+      <td>Inactive</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>11</td>
+      <td>Simpsons</td>
+      <td>2</td>
+      <td>Lisa</td>
+      <td>222</td>
+      <td>Play on saxophone</td>
+      <td>Active</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>11</td>
+      <td>Simpsons</td>
+      <td>3</td>
+      <td>maggie</td>
+      <td>333</td>
+      <td>Eat</td>
+      <td>Frozen</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>22</td>
+      <td>Flintstones</td>
+      <td>4</td>
+      <td>Fred</td>
+      <td>444</td>
+      <td>Gatherer</td>
+      <td>Inactive</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td>22</td>
+      <td>Flintstones</td>
+      <td>5</td>
+      <td>Wilma</td>
+      <td>555</td>
+      <td>Hunt</td>
+      <td>Active</td>
+    </tr>
+  </tbody>
 </table>
-    </body>
-</html>
