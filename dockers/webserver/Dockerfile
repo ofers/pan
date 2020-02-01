@@ -1,15 +1,24 @@
 FROM centos:centos7 as webapp
-ENV nginxversion="1.14.0-1" \
-    os="centos" \
-    osversion="7" \
-    elversion="7_4"
-RUN yum install -y wget openssl sed &&\
-    yum -y autoremove &&\
-    yum clean all &&\
-    wget http://nginx.org/packages/$os/$osversion/x86_64/RPMS/nginx-$nginxversion.el$elversion.ngx.x86_64.rpm &&\
-    rpm -iv nginx-$nginxversion.el$elversion.ngx.x86_64.rpm
 
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY base_index.html /data/www/index.html
+RUN yum install -y epel-release && \
+    yum install -y \
+        nginx && \
+    yum clean all
+
+# Remove the default Nginx configuration file
+RUN rm -v /etc/nginx/nginx.conf
+# Copy a configuration file from the current directory
+ADD nginx.conf /etc/nginx/
+
+RUN mkdir /var/www
+ADD base_index.html /var/www/index.html
+
+#RUN set -x \
+## forward request and error logs to docker log collector
+#    && ln -sf /dev/stdout /var/log/nginx/access.log \
+#    && ln -sf /dev/stderr /var/log/nginx/error.log
+
+# Expose ports
 EXPOSE 9980
+
 CMD ["nginx", "-g", "daemon off;"]

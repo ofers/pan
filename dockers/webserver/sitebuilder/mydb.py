@@ -3,7 +3,7 @@ import mysql.connector
 config = {
     'user': 'root',
     'password': '1q2w3e',
-    'host': '192.168.181.139',
+    'host': 'db',
     'raise_on_warnings': True,
     # 'OPTIONS': {
     #     'charset': 'utf8mb4',
