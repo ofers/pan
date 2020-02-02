@@ -1,8 +1,8 @@
 # Pan Ofer Task
 
 I used Ubuntu 16.04.5 LTS for this Project.\
-To deploy exec deploy.sh from project root.\
-To update index.html exec update.sh from project root.
+To deploy exec deploy.sh from project dockers folder.\
+To update index.html exec update.sh from project dockers folder.
 
 # Prepering Env for docker use
 sudo apt install git docker docker-compose\
