@@ -1,24 +1,22 @@
-FROM centos:centos7 as webapp
+#Stage1 - build index.html
+FROM centos:centos7 as mybuild
+RUN yum install -y python36 python-pip
+RUN mkdir /app
+ADD webserver/req.txt /app/req.txt
+RUN pip3 install -r /app/req.txt
+COPY webserver/sitebuilder /app
+RUN cd /app/;python3 buildhtml.py
+#CMD ["cd /app/;python3 buildhtml.py"]
 
+#Stage2 - preper webserver with index.html from stage1
+FROM centos:centos7 as webserver
 RUN yum install -y epel-release && \
     yum install -y \
         nginx && \
     yum clean all
-
-# Remove the default Nginx configuration file
 RUN rm -v /etc/nginx/nginx.conf
-# Copy a configuration file from the current directory
-ADD nginx.conf /etc/nginx/
-
+ADD webserver/nginx.conf /etc/nginx/
 RUN mkdir /var/www
-ADD base_index.html /var/www/index.html
-
-#RUN set -x \
-## forward request and error logs to docker log collector
-#    && ln -sf /dev/stdout /var/log/nginx/access.log \
-#    && ln -sf /dev/stderr /var/log/nginx/error.log
-
-# Expose ports
+COPY --from=mybuild /app/index.html /var/www/index.html
 EXPOSE 9980
-
 CMD ["nginx", "-g", "daemon off;"]
