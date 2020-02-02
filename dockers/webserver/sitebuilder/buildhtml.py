@@ -1,4 +1,4 @@
-from dockers.webserver.sitebuilder.mydb import get
+from mydb import get
 import pandas
 
 

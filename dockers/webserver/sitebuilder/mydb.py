@@ -28,9 +28,7 @@ def get():
              "AND As_account.Account_ID = As_project.Account_ID")
 
     cursor.execute(query)
-    mydata = cursor.fetchall()
-    print(mydata)
-    return data_rearranger(mydata)
+    return data_rearranger(cursor.fetchall())
     cursor.close()
     cnx.close()
 

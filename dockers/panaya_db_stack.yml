@@ -16,13 +16,11 @@ services:
 
   web:
     image: webserver
-#    deploy:
-#      restart_policy:
-#        condition: on-failure
+    links:
+      - "db"
     ports:
       - "9980:9980"
-#    links:
-#      - db
+
 #    healthcheck:
 #      test: ["CMD", "wget", "--spider", "http://localhost"]
 #      interval: 30s
